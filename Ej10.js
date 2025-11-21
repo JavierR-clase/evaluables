@@ -2,6 +2,8 @@ const prompt = require('prompt-sync')();
 let N = Number(prompt("Introduce la cantidad de trabajadores"));
 let salario = 0;
 let totalEmpresa = 0;
+let Max=-Infinity;
+let Min =Infinity;
 for(let i=0;i<N;i++){
     let oficio = Number(prompt("Introduce tu puesto de trabajo (licenciado-1,tecnico-2,obrero-3):"));
     let turno = Number(prompt("Introduce el turno en el que trabajas(1,2,3):"));
@@ -33,5 +35,14 @@ for(let i=0;i<N;i++){
     }
     console.log(`El trabajador cobra un total de ${salario}`)
     totalEmpresa += salario;
+    if(salario>Max){
+        Max=salario;
+    }
+    if(salario<Min){
+        Min=salario;
+    }
 }
 console.log(`El total de la empresa es ${totalEmpresa}`);
+console.log(`El salario maximo es ${Max}`);
+console.log(`El salario minimo es ${Min}`);
+console.log(`La media de la empresa es ${totalEmpresa/N}`);
